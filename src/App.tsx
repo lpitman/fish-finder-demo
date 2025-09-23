@@ -17,8 +17,8 @@ interface Fish {
 
 const API_URL = 'http://localhost:8088/fish'
 const REFERESH_INTERVAL = 5000 // 5 seconds
-const HALIFAX_COORDS: [number, number] = [44.6488, -63.5752] // Halifax, Nova Scotia
-const MAP_ZOOM_LEVEL = 11
+const HALIFAX_COORDS: [number, number] = [44.692661, -63.639532] // Halifax, Nova Scotia
+const MAP_ZOOM_LEVEL = 12
 
 function App() {
   const [fishes, setFishes] = useState<Fish[]>([]);
