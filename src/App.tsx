@@ -8,6 +8,7 @@ import Map from './Map'
 // fixing missing marker icons in leaflet
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import FishForm from './FishForm'
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -37,6 +38,11 @@ function App() {
   const [fishes, setFishes] = useState<Fish[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState(new Date());
+
+  // state for new fish form
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [newFishSpecies, setNewFishSpecies] = useState('');
+  const [newFistTrackingInfo, setNewFishTrackingInfo] = useState('');
 
   // fetch data from the go backend
   const fetchData = async () => {
@@ -78,6 +84,33 @@ function App() {
         )}
 
         <Map fishes={fishes} />
+
+        <FishForm API_URL={API_URL} setError={setError} ></FishForm>
+
+        <div className='table-container'>
+                <table className='fish-table'>
+                    <thead>
+                        <tr>
+                            <th>Species</th>
+                            <th>Tracking Info</th>
+                            <th>Weight (kg)</th>
+                            <th>Location (lat, lon)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {fishes.map(fish => (
+                            <tr key={fish.id} className='table-row'>
+                                <td className='table-cell'>{fish.species}</td>
+                                <td className='table-cell'>{fish.trackingInfo}</td>
+                                <td className='table-cell'>{fish.weightKG}</td>
+                                <td className='table-cell'>
+                                    {fish.location.latitude.toFixed(4)}, {fish.location.longitude.toFixed(4)}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         
         <footer style={{ textAlign: 'center', marginTop: '1rem', color: '#888', fontSize: '0.9rem' }}>
           <p>Map data updates automatically. Last update: {lastUpdated.toLocaleTimeString()}</p>

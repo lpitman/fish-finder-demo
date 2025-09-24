@@ -1,0 +1,89 @@
+/* Control buttons and form styles */
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.add-fish-button {
+    padding: 0.75rem 1.5rem;
+    margin-top: 0.5rem;
+    background-color: #2563eb;
+    color: #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px #000a, 0 2px 4px -1px #0008;
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.add-fish-button:hover {
+    background-color: #1e40af;
+    color: #fff;
+}
+
+.add-fish-form-container {
+    background-color: #23272f;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px #000a;
+    margin-bottom: 1.5rem;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+.add-fish-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #b0b0b0;
+}
+
+.form-input {
+    margin-top: 0.25rem;
+    display: block;
+    width: 90%;
+    padding: 0.5rem 0.75rem;
+    border-width: 1px;
+    border-color: #23272f;
+    background: #181a1b;
+    color: #e0e0e0;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 #0008;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #16a34a;
+    color: #e0e0e0;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 4px 6px -1px #000a, 0 2px 4px -1px #0008;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #15803d;
+    color: #fff;
+}
+

@@ -65,3 +65,44 @@
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
 }
+
+/* Table styles */
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px #000a, 0 4px 6px -2px #0008;
+  background: #23272f;
+}
+
+.fish-table {
+  min-width: 100%;
+  background-color: #23272f;
+  color: #e0e0e0;
+}
+
+.table-header {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  background-color: #181a1b;
+  color: #b0b0b0;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.fish-table tbody .table-row:hover {
+  background-color: #2d323c;
+}
+
+.table-cell {
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom-width: 1px;
+  border-color: #23272f;
+  color: #e0e0e0;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
