@@ -30,7 +30,7 @@ interface Fish {
 
 const API_HOST = import.meta.env.VITE_API_HOST || 'localhost';
 const API_PORT = import.meta.env.VITE_API_PORT || '8088';
-const API_URL = `http://${API_HOST}${API_PORT === '80' ? '' : `:${API_PORT}`}/fish`;
+const API_URL = `${API_HOST}${API_PORT === '80' ? '' : `:${API_PORT}`}/fish`;
 const REFERESH_INTERVAL = 5000 // 5 seconds
 const HALIFAX_COORDS: [number, number] = [44.692661, -63.639532] // Halifax, Nova Scotia
 const MAP_ZOOM_LEVEL = 14
