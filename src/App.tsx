@@ -1,6 +1,19 @@
 import { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 import './App.css'
+
+// fixing missing marker icons in leaflet
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconAnchor: [12, 41] // point of the icon which will correspond to marker's location
+});
+L.Marker.prototype.options.icon = DefaultIcon;
 
 interface Location {
   latitude: number;
@@ -20,7 +33,9 @@ const API_PORT = import.meta.env.VITE_API_PORT || '8088';
 const API_URL = `http://${API_HOST}${API_PORT === '80' ? '' : `:${API_PORT}`}/fish`;
 const REFERESH_INTERVAL = 5000 // 5 seconds
 const HALIFAX_COORDS: [number, number] = [44.692661, -63.639532] // Halifax, Nova Scotia
-const MAP_ZOOM_LEVEL = 12
+const MAP_ZOOM_LEVEL = 14
+
+
 
 function App() {
   const [fishes, setFishes] = useState<Fish[]>([]);
