@@ -39,11 +39,6 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState(new Date());
 
-  // state for new fish form
-  const [isFormVisible, setIsFormVisible] = useState(false);
-  const [newFishSpecies, setNewFishSpecies] = useState('');
-  const [newFistTrackingInfo, setNewFishTrackingInfo] = useState('');
-
   // fetch data from the go backend
   const fetchData = async () => {
     try {
