@@ -1,0 +1,16 @@
+.map-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.map-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+.map-header p {
+  margin-top: 0.5rem;
+  color: #b0b0b0;
+}
+

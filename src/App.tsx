@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
+import Map from './Map'
 
 // fixing missing marker icons in leaflet
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -20,7 +21,7 @@ interface Location {
   longitude: number;
 }
 
-interface Fish {
+export interface Fish {
   id: string;
   species: string;
   trackingInfo: string;
@@ -30,9 +31,6 @@ interface Fish {
 
 const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8088'}/fish`
 const REFERESH_INTERVAL = 5000 // 5 seconds
-const HALIFAX_COORDS: [number, number] = [44.692661, -63.639532] // Halifax, Nova Scotia
-const MAP_ZOOM_LEVEL = 14
-
 
 
 function App() {
@@ -79,23 +77,7 @@ function App() {
           </div>
         )}
 
-        <MapContainer center={HALIFAX_COORDS} zoom={MAP_ZOOM_LEVEL}>
-          <TileLayer 
-            attribution='&copy; <a href="[https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright)">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {fishes.map((fish) => (
-            <Marker key={fish.id} position={[fish.location.latitude, fish.location.longitude]}>
-              <Popup>
-              <div>
-                <h3 style={{ fontWeight: 'bold', fontSize: '1.1rem', margin: 0 }}>{fish.species}</h3>
-                <p><strong>Weight:</strong> {fish.weightKG.toFixed(2)} kg</p>
-                <p><strong>Tracker:</strong> {fish.trackingInfo}</p>
-              </div>
-            </Popup>
-            </Marker>
-          ))}
-        </MapContainer>
+        <Map fishes={fishes} />
         
         <footer style={{ textAlign: 'center', marginTop: '1rem', color: '#888', fontSize: '0.9rem' }}>
           <p>Map data updates automatically. Last update: {lastUpdated.toLocaleTimeString()}</p>
